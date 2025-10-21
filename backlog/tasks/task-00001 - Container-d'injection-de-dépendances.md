@@ -1,7 +1,7 @@
 ---
 id: task-00001
 title: Container d'injection de dépendances
-status: In Progress
+status: Done
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:57'
