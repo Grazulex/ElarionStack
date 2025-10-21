@@ -1,9 +1,11 @@
 ---
 id: task-00004
 title: Router HTTP
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@ai-assistant'
 created_date: '2025-10-21 19:57'
+updated_date: '2025-10-21 20:34'
 labels:
   - http
   - routing
