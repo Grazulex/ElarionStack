@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:58'
-updated_date: '2025-10-21 21:52'
+updated_date: '2025-10-21 21:53'
 labels:
   - api
   - resources
@@ -28,3 +28,41 @@ Implémenter un système de transformation de données pour convertir les models
 - [ ] #5 Les resources peuvent inclure des métadonnées
 - [ ] #6 Les tests démontrent la transformation de models en JSON
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. Design Resource architecture (transformation layer pattern)
+2. Create abstract Resource base class with:
+   - toArray($request) method for transformation
+   - toResponse($request) for HTTP Response
+   - Static collection() for handling arrays
+   - Static make() factory method
+3. Implement single resource transformation:
+   - Accept Model instance
+   - Transform to array structure
+   - Control which attributes to expose
+4. Implement collection transformation:
+   - Accept array of Models
+   - Transform each item
+   - Wrap in data envelope
+5. Implement nested resources:
+   - Support loading related resources
+   - Conditional includes
+   - whenLoaded() helper
+6. Implement metadata support:
+   - with() method for extra data
+   - additional() for top-level meta
+   - Pagination meta helpers
+7. Implement conditional attributes:
+   - when() for conditional inclusion
+   - merge() for merging arrays
+   - Attribute helpers
+8. Create comprehensive tests:
+   - Single resource transformation
+   - Collection transformation
+   - Nested resources
+   - Metadata and pagination
+   - Conditional attributes
+9. Run quality checks (PHPStan, PHP-CS-Fixer, tests)
+<!-- SECTION:PLAN:END -->
