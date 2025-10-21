@@ -42,3 +42,27 @@ Créer un système de validation de données pour valider les inputs utilisateur
 8. Écrire tests complets pour chaque règle built-in
 9. Vérifier PHPStan level 8 et PHP-CS-Fixer
 <!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Implemented comprehensive validation system with Rule-based architecture.
+
+Created 4 core components:
+- Rule interface and AbstractRule base class for validation logic
+- 9 built-in rules: Required, Email, Min, Max, StringType, IntegerType, Numeric, BooleanType, ArrayType
+- Validator class with string-based rules (pipe separator), Rule instances, and Closures
+- Comprehensive test suite: 55 tests, 67 assertions
+
+Key features:
+- String-based rules: "required|email|min:3"
+- Custom rules via Closures and Rule classes
+- Nested array validation with dot notation (user.email, items.*.price)
+- Custom error messages with placeholders
+- validated() method returns only validated fields
+
+All quality checks pass:
+- PHPStan level 8: ✓
+- PHP-CS-Fixer: ✓
+- 55 tests: ✓
+<!-- SECTION:NOTES:END -->
