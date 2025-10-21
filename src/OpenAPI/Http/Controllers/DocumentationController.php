@@ -85,4 +85,33 @@ HTML;
 
         return Response::html($html);
     }
+
+    /**
+     * Serve ReDoc UI
+     */
+    public function redocUI(ServerRequestInterface $request): Response
+    {
+        $html = <<<'HTML'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - ReDoc</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <redoc spec-url='/api/documentation.json'></redoc>
+    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+</body>
+</html>
+HTML;
+
+        return Response::html($html);
+    }
 }

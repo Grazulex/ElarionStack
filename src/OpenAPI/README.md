@@ -8,9 +8,11 @@ Automatically generate OpenAPI 3.1 documentation for your ElarionStack APIs with
 - ✅ **PHP 8+ Attributes** - Clean, native annotations for endpoints
 - ✅ **Automatic Generation** - Routes and validation rules auto-converted to schemas
 - ✅ **Swagger UI** - Interactive API documentation interface
+- ✅ **ReDoc UI** - Beautiful alternative documentation interface
 - ✅ **JSON & YAML Export** - Multiple output formats
 - ✅ **Validation Integration** - Automatically converts validation rules to request schemas
-- ✅ **JSON:API Support** - Specialized handling for JSON:API responses
+- ✅ **Resource Scanner** - Automatically generates response schemas from API Resources
+- ✅ **JSON:API Support** - Full JSON:API v1.1 specification compliance with schemas
 
 ## Installation
 
@@ -265,6 +267,11 @@ Once configured, access your API documentation at:
 http://localhost:8000/api/documentation
 ```
 
+### ReDoc UI (Beautiful & Clean)
+```
+http://localhost:8000/api/redoc
+```
+
 ### JSON Format
 ```
 http://localhost:8000/api/documentation.json
@@ -456,14 +463,14 @@ The OpenAPI generator consists of several components:
 - `RouteScanner` - Extracts registered routes from Router
 - `AttributeScanner` - Reads PHP Attributes from controller methods
 - `ValidationScanner` - Converts validation rules to OpenAPI schemas
-- `ResourceScanner` - Converts API Resources to response schemas (partial)
-- `JsonApiScanner` - Handles JSON:API format responses (partial)
+- `ResourceScanner` - Analyzes API Resources and generates response schemas from structure
+- `JsonApiScanner` - Generates full JSON:API v1.1 specification-compliant schemas
 
 ### Generator
 - `OpenApiGenerator` - Main orchestrator that combines all scanners
 
 ### Controller
-- `DocumentationController` - Serves JSON, YAML, and Swagger UI
+- `DocumentationController` - Serves JSON, YAML, Swagger UI, and ReDoc UI
 
 ## Programmatic Usage
 
@@ -517,11 +524,11 @@ The OpenAPI generator includes comprehensive tests:
 
 ## Known Limitations
 
-- ResourceScanner is partially implemented (basic support only)
-- JsonApiScanner is partially implemented (structure in place)
-- ReDoc UI is not yet integrated (only Swagger UI)
 - Custom schema components need manual definition
-- Some PHPStan warnings for array type specifications (cosmetic)
+- Some PHPStan warnings for array type specifications (cosmetic, non-blocking)
+- Security schemes not yet implemented (OAuth2, API Key, etc.)
+- Request/response examples not yet implemented
+- Webhooks documentation not yet supported
 
 ## Roadmap
 
@@ -529,24 +536,25 @@ The OpenAPI generator includes comprehensive tests:
 - ✅ PHP Attributes for endpoints
 - ✅ Auto-generation from routes
 - ✅ Validation rules → Request schemas
+- ✅ ResourceScanner - API Resources to response schemas
+- ✅ JsonApiScanner - Full JSON:API v1.1 support
 - ✅ Swagger UI integration
+- ✅ ReDoc UI integration
 - ✅ JSON and YAML export
-- ⏳ Complete ResourceScanner
-- ⏳ Complete JsonApiScanner
-- ⏳ ReDoc UI integration
-- ⏳ Security schemes (OAuth2, API Key, etc.)
+- ⏳ Security schemes (OAuth2, API Key, Bearer Token, etc.)
 - ⏳ Request/response examples
 - ⏳ Webhooks documentation
-- ⏳ Custom schema components
+- ⏳ Custom schema components library
 
 ## Troubleshooting
 
-### Swagger UI not loading
+### Swagger UI or ReDoc not loading
 
 Check that routes are registered in your service provider:
 
 ```php
 $router->get('/api/documentation', [DocumentationController::class, 'swaggerUI']);
+$router->get('/api/redoc', [DocumentationController::class, 'redocUI']);
 $router->get('/api/documentation.json', [DocumentationController::class, 'json']);
 $router->get('/api/documentation.yaml', [DocumentationController::class, 'yaml']);
 ```
@@ -559,16 +567,24 @@ Ensure routes are registered before the OpenAPI generator runs. The generator sc
 
 Check that you're using supported validation rules. Custom rules need manual schema definition.
 
+### Resource schemas not generating correctly
+
+Provide sample data to ResourceScanner for better type inference:
+
+```php
+$scanner = new ResourceScanner();
+$schema = $scanner->scan(UserResource::class, ['id' => 1, 'name' => 'John']);
+```
+
 ## Contributing
 
 Contributions are welcome! Areas needing work:
 
-- Complete ResourceScanner implementation
-- Complete JsonApiScanner implementation
-- Add ReDoc UI support
-- Add security schemes
-- Add request/response examples
+- Add security schemes (OAuth2, API Key, Bearer Token)
+- Add request/response examples support
+- Add webhooks documentation
 - Improve YAML export (consider symfony/yaml)
+- Create reusable schema components library
 
 ## License
 

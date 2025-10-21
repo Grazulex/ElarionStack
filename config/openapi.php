@@ -45,6 +45,7 @@ return [
     */
     'routes' => [
         'ui' => '/api/documentation',
+        'redoc' => '/api/redoc',
         'json' => '/api/documentation.json',
         'yaml' => '/api/documentation.yaml',
     ],

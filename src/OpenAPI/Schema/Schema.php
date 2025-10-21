@@ -101,7 +101,7 @@ final class Schema implements JsonSerializable
     /**
      * Create an array schema
      */
-    public static function array(Schema $items, ?int $minItems = null, ?int $maxItems = null): self
+    public static function array(?Schema $items = null, ?int $minItems = null, ?int $maxItems = null): self
     {
         return new self(type: 'array', items: $items, minItems: $minItems, maxItems: $maxItems);
     }
@@ -123,6 +123,44 @@ final class Schema implements JsonSerializable
     public static function ref(string $ref): self
     {
         return new self(ref: $ref);
+    }
+
+    /**
+     * Create a null schema
+     */
+    public static function null(): self
+    {
+        return new self(type: 'null');
+    }
+
+    /**
+     * Create a schema with oneOf (union type)
+     *
+     * @param array<Schema> $schemas Array of possible schemas
+     */
+    public static function oneOf(array $schemas): self
+    {
+        return new self(additionalProperties: ['oneOf' => $schemas]);
+    }
+
+    /**
+     * Create a schema with anyOf
+     *
+     * @param array<Schema> $schemas Array of possible schemas
+     */
+    public static function anyOf(array $schemas): self
+    {
+        return new self(additionalProperties: ['anyOf' => $schemas]);
+    }
+
+    /**
+     * Create a schema with allOf (intersection type)
+     *
+     * @param array<Schema> $schemas Array of schemas to combine
+     */
+    public static function allOf(array $schemas): self
+    {
+        return new self(additionalProperties: ['allOf' => $schemas]);
     }
 
     /**

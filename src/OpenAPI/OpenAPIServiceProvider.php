@@ -48,5 +48,6 @@ final class OpenAPIServiceProvider extends ServiceProvider
         $router->get('/api/documentation', [DocumentationController::class, 'swaggerUI'], 'api.docs');
         $router->get('/api/documentation.json', [DocumentationController::class, 'json'], 'api.docs.json');
         $router->get('/api/documentation.yaml', [DocumentationController::class, 'yaml'], 'api.docs.yaml');
+        $router->get('/api/redoc', [DocumentationController::class, 'redocUI'], 'api.docs.redoc');
     }
 }
