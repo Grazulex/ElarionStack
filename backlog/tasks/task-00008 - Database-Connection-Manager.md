@@ -1,9 +1,11 @@
 ---
 id: task-00008
 title: Database Connection Manager
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2025-10-21 19:57'
+updated_date: '2025-10-21 21:11'
 labels:
   - database
   - pdo
