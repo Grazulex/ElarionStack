@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 21:03'
+updated_date: '2025-10-21 21:09'
 labels:
   - http
   - middleware
@@ -22,12 +22,12 @@ Créer un système de pipeline pour exécuter des middlewares PSR-15 autour du t
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Le pipeline implémente PSR-15 RequestHandlerInterface
-- [ ] #2 Les middlewares sont exécutés dans l'ordre d'enregistrement
-- [ ] #3 Un middleware peut court-circuiter la chaîne en retournant une réponse
-- [ ] #4 Les middlewares peuvent modifier request et response
-- [ ] #5 Le pipeline peut être utilisé avec le router
-- [ ] #6 Les tests démontrent l'exécution séquentielle et le court-circuit
+- [x] #1 Le pipeline implémente PSR-15 RequestHandlerInterface
+- [x] #2 Les middlewares sont exécutés dans l'ordre d'enregistrement
+- [x] #3 Un middleware peut court-circuiter la chaîne en retournant une réponse
+- [x] #4 Les middlewares peuvent modifier request et response
+- [x] #5 Le pipeline peut être utilisé avec le router
+- [x] #6 Les tests démontrent l'exécution séquentielle et le court-circuit
 <!-- AC:END -->
 
 ## Implementation Plan
