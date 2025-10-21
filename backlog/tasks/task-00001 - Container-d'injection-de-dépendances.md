@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 20:03'
+updated_date: '2025-10-21 20:17'
 labels:
   - core
   - psr-11
@@ -22,12 +22,12 @@ Implémenter un conteneur d'injection de dépendances conforme PSR-11 pour gére
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Le conteneur implémente PSR-11 ContainerInterface
-- [ ] #2 Le conteneur peut résoudre des classes avec auto-wiring
-- [ ] #3 Le conteneur peut lier des interfaces à des implémentations
-- [ ] #4 Le conteneur peut résoudre des dépendances récursives
-- [ ] #5 Le conteneur lance des exceptions appropriées pour les dépendances non trouvées
-- [ ] #6 Les tests unitaires couvrent tous les cas d'usage principaux
+- [x] #1 Le conteneur implémente PSR-11 ContainerInterface
+- [x] #2 Le conteneur peut résoudre des classes avec auto-wiring
+- [x] #3 Le conteneur peut lier des interfaces à des implémentations
+- [x] #4 Le conteneur peut résoudre des dépendances récursives
+- [x] #5 Le conteneur lance des exceptions appropriées pour les dépendances non trouvées
+- [x] #6 Les tests unitaires couvrent tous les cas d'usage principaux
 <!-- AC:END -->
 
 ## Implementation Plan
