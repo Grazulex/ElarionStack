@@ -94,6 +94,15 @@ php -S localhost:8000 -t public
 - **Messages d'erreur** personnalisables avec placeholders
 - Method `validated()` pour extraire uniquement les données validées
 
+### 📦 Collection
+- **API fluente** pour manipuler des tableaux (inspirée Laravel Collections)
+- **Interfaces SPL**: Iterator, ArrayAccess, Countable, IteratorAggregate, JsonSerializable
+- **Transformation**: map, filter, reduce, each
+- **Tri/Groupement**: sort, sortBy, groupBy, pluck
+- **Utilitaires**: sum, avg, take, slice, merge, implode, toArray, toJson
+- **Dot notation** pour données imbriquées
+- **Method chaining** pour opérations fluides
+
 ### ⚙️ Configuration
 - Gestionnaire centralisé de configuration
 - Support fichiers .env avec parsing
@@ -101,7 +110,7 @@ php -S localhost:8000 -t public
 - Valeurs par défaut et types sûrs
 
 ### ✅ Qualité
-- **312 tests** (601 assertions) - 100% passing
+- **373 tests** (678 assertions) - 100% passing
 - **PHPStan level 8** - Analyse statique stricte
 - **PHP-CS-Fixer** - Code style uniforme
 - PHP 8.5 ready avec features modernes
@@ -127,7 +136,9 @@ php -S localhost:8000 -t public
 │   ├── Validation/
 │   │   ├── Rules/        # Built-in validation rules
 │   │   └── Validator.php # Validation orchestrator
-│   └── Support/          # Helpers
+│   └── Support/
+│       ├── Collection.php # Fluent collection class
+│       └── helpers.php    # Helper functions
 ├── tests/                # Tests unitaires et intégration
 ├── docs/                 # Documentation complète
 ├── config/               # Configuration
@@ -152,7 +163,7 @@ composer quality
 
 ## Roadmap
 
-### ✅ Complété (12/15)
+### ✅ Complété (13/15)
 
 - [x] **Container DI** - PSR-11 avec auto-wiring et service providers
 - [x] **Service Providers** - Système de bootstrapping modulaire
@@ -166,14 +177,14 @@ composer quality
 - [x] **ORM Model** - Active Record avec CRUD, timestamps, fillable guard
 - [x] **API Resources** - Transformers avec conditionals, nested resources, collections
 - [x] **Validation** - Rule-based system avec 9 règles built-in, custom rules, nested arrays
+- [x] **Collection Class** - API fluente avec SPL interfaces, transformations, tri/groupement
 
-### 🚧 À venir (3/15)
+### 🚧 À venir (2/15)
 
 - [ ] **JSON:API Support** - Compliance complète JSON:API spec
-- [ ] **Collection Class** - Collection Laravel-like
 - [ ] **Helper Functions** - Fonctions utilitaires globales
 
-**Progression: 80% (12/15 tasks)**
+**Progression: 87% (13/15 tasks)**
 
 Voir le backlog complet: `backlog task list --plain`
 
