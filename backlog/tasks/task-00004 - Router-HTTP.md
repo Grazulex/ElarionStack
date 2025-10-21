@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@ai-assistant'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 20:35'
+updated_date: '2025-10-21 20:48'
 labels:
   - http
   - routing
@@ -21,12 +21,12 @@ Implémenter le système de routing HTTP en utilisant FastRoute pour mapper les 
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Le router peut enregistrer des routes GET, POST, PUT, PATCH, DELETE
-- [ ] #2 Le router peut matcher une requête à une route enregistrée
-- [ ] #3 Le router supporte les paramètres de route (ex: /users/{id})
-- [ ] #4 Le router supporte les groupes de routes avec préfixes
-- [ ] #5 Le router peut associer des middlewares aux routes
-- [ ] #6 Les tests couvrent tous les verbes HTTP et scénarios de matching
+- [x] #1 Le router peut enregistrer des routes GET, POST, PUT, PATCH, DELETE
+- [x] #2 Le router peut matcher une requête à une route enregistrée
+- [x] #3 Le router supporte les paramètres de route (ex: /users/{id})
+- [x] #4 Le router supporte les groupes de routes avec préfixes
+- [x] #5 Le router peut associer des middlewares aux routes
+- [x] #6 Les tests couvrent tous les verbes HTTP et scénarios de matching
 <!-- AC:END -->
 
 ## Implementation Plan
