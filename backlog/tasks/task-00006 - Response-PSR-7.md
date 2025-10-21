@@ -1,0 +1,28 @@
+---
+id: task-00006
+title: Response PSR-7
+status: To Do
+assignee: []
+created_date: '2025-10-21 19:57'
+labels:
+  - http
+  - psr-7
+dependencies: []
+priority: high
+---
+
+## Description
+
+<!-- SECTION:DESCRIPTION:BEGIN -->
+Implémenter une classe Response conforme PSR-7 pour créer et manipuler les réponses HTTP de manière standardisée et immutable.
+<!-- SECTION:DESCRIPTION:END -->
+
+## Acceptance Criteria
+<!-- AC:BEGIN -->
+- [ ] #1 La classe implémente PSR-7 ResponseInterface
+- [ ] #2 On peut créer des réponses avec status code, headers, body
+- [ ] #3 On peut créer facilement des réponses JSON
+- [ ] #4 Les objets Response sont immutables
+- [ ] #5 La classe peut émettre la réponse au client
+- [ ] #6 Les tests vérifient la conformité PSR-7
+<!-- AC:END -->
