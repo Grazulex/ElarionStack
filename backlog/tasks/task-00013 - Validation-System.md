@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@Claude'
 created_date: '2025-10-21 19:58'
-updated_date: '2025-10-21 22:03'
+updated_date: '2025-10-21 22:10'
 labels:
   - validation
   - security
@@ -21,12 +21,12 @@ Créer un système de validation de données pour valider les inputs utilisateur
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Le validator peut valider selon des règles (required, email, min, max, etc.)
-- [ ] #2 Le validator retourne des messages d'erreur clairs
-- [ ] #3 Support de règles personnalisées
-- [ ] #4 Support de validation de tableaux imbriqués
-- [ ] #5 Les messages d'erreur peuvent être traduits
-- [ ] #6 Les tests couvrent toutes les règles de validation built-in
+- [x] #1 Le validator peut valider selon des règles (required, email, min, max, etc.)
+- [x] #2 Le validator retourne des messages d'erreur clairs
+- [x] #3 Support de règles personnalisées
+- [x] #4 Support de validation de tableaux imbriqués
+- [x] #5 Les messages d'erreur peuvent être traduits
+- [x] #6 Les tests couvrent toutes les règles de validation built-in
 <!-- AC:END -->
 
 ## Implementation Plan
