@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@ai-assistant'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 20:51'
+updated_date: '2025-10-21 20:59'
 labels:
   - http
   - psr-7
@@ -21,12 +21,12 @@ Implémenter une classe ServerRequest conforme PSR-7 pour représenter les requ�
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 La classe implémente PSR-7 ServerRequestInterface
-- [ ] #2 On peut accéder aux query parameters, body, headers
-- [ ] #3 On peut accéder aux cookies et uploaded files
-- [ ] #4 Les objets Request sont immutables
-- [ ] #5 La classe peut être créée depuis les superglobales PHP
-- [ ] #6 Les tests vérifient la conformité PSR-7
+- [x] #1 La classe implémente PSR-7 ServerRequestInterface
+- [x] #2 On peut accéder aux query parameters, body, headers
+- [x] #3 On peut accéder aux cookies et uploaded files
+- [x] #4 Les objets Request sont immutables
+- [x] #5 La classe peut être créée depuis les superglobales PHP
+- [x] #6 Les tests vérifient la conformité PSR-7
 <!-- AC:END -->
 
 ## Implementation Plan
