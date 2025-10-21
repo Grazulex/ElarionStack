@@ -1,9 +1,11 @@
 ---
 id: task-00001
 title: Container d'injection de dépendances
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2025-10-21 19:57'
+updated_date: '2025-10-21 20:00'
 labels:
   - core
   - psr-11
