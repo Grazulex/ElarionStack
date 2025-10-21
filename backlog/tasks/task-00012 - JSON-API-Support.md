@@ -1,9 +1,11 @@
 ---
 id: task-00012
 title: 'JSON:API Support'
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@Claude'
 created_date: '2025-10-21 19:58'
+updated_date: '2025-10-21 22:23'
 labels:
   - api
   - json-api
