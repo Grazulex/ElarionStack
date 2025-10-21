@@ -68,11 +68,13 @@ php -S localhost:8000 -t public
 - Support callables, classes, et MiddlewareInterface
 
 ### 💾 Database
-- Connection Manager avec lazy-loading
+- **Connection Manager** avec lazy-loading
+- **Query Builder** fluent avec support multi-driver (MySQL, PostgreSQL, SQLite)
+- **ORM Active Record** avec CRUD, timestamps, fillable guard
 - Support **MySQL, PostgreSQL, SQLite**
 - Multiple connexions nommées indépendantes
 - Configuration centralisée et validation
-- Exceptions claires avec contexte (driver, host, database)
+- Prepared statements automatiques (protection SQL injection)
 
 ### ⚙️ Configuration
 - Gestionnaire centralisé de configuration
@@ -81,8 +83,8 @@ php -S localhost:8000 -t public
 - Valeurs par défaut et types sûrs
 
 ### ✅ Qualité
-- **171 tests** (317 assertions) - 100% passing
-- **PHPStan level 9** - Analyse statique stricte
+- **233 tests** (478 assertions) - 100% passing
+- **PHPStan level 8** - Analyse statique stricte
 - **PHP-CS-Fixer** - Code style uniforme
 - PHP 8.5 ready avec features modernes
 
@@ -98,9 +100,13 @@ php -S localhost:8000 -t public
 │   │   ├── Message/      # PSR-7 Messages
 │   │   ├── Factories/    # PSR-17 Factories
 │   │   └── Middleware/   # PSR-15 Middleware Pipeline
-│   ├── Database/         # Connection Manager
+│   ├── Database/
+│   │   ├── Query/        # Query Builder + Grammars
+│   │   ├── Model.php     # ORM Active Record
+│   │   └── ConnectionManager.php
 │   └── Support/          # Helpers
 ├── tests/                # Tests unitaires et intégration
+├── docs/                 # Documentation complète
 ├── config/               # Configuration
 └── backlog/              # Gestion de projet (tasks, docs)
 ```
@@ -123,7 +129,7 @@ composer quality
 
 ## Roadmap
 
-### ✅ Complété (8/15)
+### ✅ Complété (10/15)
 
 - [x] **Container DI** - PSR-11 avec auto-wiring et service providers
 - [x] **Service Providers** - Système de bootstrapping modulaire
@@ -133,18 +139,18 @@ composer quality
 - [x] **PSR-17 Factories** - Factories pour création d'objets HTTP
 - [x] **Middleware Pipeline** - PSR-15 avec FIFO, short-circuit, router integration
 - [x] **Database Connection** - PDO manager avec lazy-loading, multiple connections
+- [x] **Query Builder** - Interface fluide multi-driver (MySQL, PostgreSQL, SQLite)
+- [x] **ORM Model** - Active Record avec CRUD, timestamps, fillable guard
 
-### 🚧 En cours (0/7)
+### 🚧 À venir (5/15)
 
-- [ ] **Query Builder** - Fluent API pour SQL (SELECT, INSERT, UPDATE, DELETE)
-- [ ] **ORM** - Active Record avec relations, timestamps, scopes
 - [ ] **API Resources** - Transformers pour réponses JSON
 - [ ] **Validation** - Système de règles et messages
 - [ ] **JSON:API Support** - Compliance complète JSON:API spec
 - [ ] **Collection Class** - Collection Laravel-like
 - [ ] **Helper Functions** - Fonctions utilitaires globales
 
-**Progression: 53% (8/15 tasks)**
+**Progression: 67% (10/15 tasks)**
 
 Voir le backlog complet: `backlog task list --plain`
 
