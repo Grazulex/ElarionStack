@@ -7,7 +7,9 @@
          failOnRisky="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
-         cacheDirectory=".phpunit.cache">
+         cacheDirectory=".phpunit.cache"
+         executionOrder="default"
+         requireCoverageMetadata="false">
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">tests/Unit</directory>
@@ -19,12 +21,14 @@
             <directory suffix="Test.php">tests/Feature</directory>
         </testsuite>
     </testsuites>
+    <!-- Coverage disabled by default - requires xdebug or pcov
     <coverage>
         <report>
             <html outputDirectory="coverage"/>
             <text outputFile="php://stdout" showUncoveredFiles="false"/>
         </report>
     </coverage>
+    -->
     <source>
         <include>
             <directory suffix=".php">src</directory>

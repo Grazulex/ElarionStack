@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^8.5",
+        "php": "^8.4 || ^8.5",
         "psr/http-message": "^2.0",
         "psr/http-factory": "^1.1",
         "psr/http-server-handler": "^1.0",
@@ -16,8 +16,7 @@
         "symfony/var-dumper": "^7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^11.5",
-        "pestphp/pest": "^3.5",
+        "phpunit/phpunit": "^11.5 || ^12.0",
         "phpstan/phpstan": "^2.0",
         "friendsofphp/php-cs-fixer": "^3.64",
         "mockery/mockery": "^1.6"
@@ -36,10 +35,10 @@
         }
     },
     "scripts": {
-        "test": "pest",
-        "test:unit": "pest --testsuite=Unit",
-        "test:integration": "pest --testsuite=Integration",
-        "test:coverage": "pest --coverage",
+        "test": "phpunit",
+        "test:unit": "phpunit --testsuite=Unit",
+        "test:integration": "phpunit --testsuite=Integration",
+        "test:coverage": "phpunit --coverage-html coverage",
         "analyse": "phpstan analyse src --level=9",
         "format": "php-cs-fixer fix src",
         "format:check": "php-cs-fixer fix src --dry-run --diff",
@@ -53,8 +52,8 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
+        "platform": {
+            "php": "8.4.99"
         }
     },
     "minimum-stability": "stable",

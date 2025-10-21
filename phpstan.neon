@@ -4,6 +4,4 @@ parameters:
         - src
     excludePaths:
         - src/Support/helpers.php
-    checkMissingIterableValueType: true
-    checkGenericClassInNonGenericObjectType: true
     reportUnmatchedIgnoredErrors: true

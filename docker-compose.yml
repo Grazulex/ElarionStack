@@ -1,0 +1,46 @@
+services:
+  # PHP 8.5 RC - ElarionStack Framework
+  php:
+    image: php:8.5-rc-cli
+    container_name: ${PROJECT_NAME:-elarionstack}_php85
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    environment:
+      - PHP_IDE_CONFIG=serverName=Docker
+    command:
+      - bash
+      - -c
+      - |
+        echo "Installing system dependencies..."
+        apt-get update && apt-get install -y \
+          libzip-dev \
+          libonig-dev \
+          libxml2-dev \
+          libicu-dev \
+          git \
+          unzip \
+          curl
+
+        echo "Installing PHP extensions..."
+        docker-php-ext-install pdo || true
+        docker-php-ext-install mbstring || true
+        docker-php-ext-install pcntl || true
+        docker-php-ext-install bcmath || true
+        docker-php-ext-install zip || true
+        docker-php-ext-install intl || true
+        docker-php-ext-install opcache || true
+
+        echo "Installing Composer..."
+        curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+        echo "Configuring git..."
+        git config --global --add safe.directory /var/www/html
+
+        echo "Installing dependencies..."
+        composer install --no-interaction --optimize-autoloader 2>/dev/null || echo "Composer dependencies not installed yet"
+
+        echo "ElarionStack container ready!"
+        tail -f /dev/null
