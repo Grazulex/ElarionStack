@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Ce fichier contient les fonctions helper globales du framework
  */
 
-if (!function_exists('env')) {
+if (! function_exists('env')) {
     /**
      * Récupère une variable d'environnement avec valeur par défaut
      */
@@ -30,7 +30,7 @@ if (!function_exists('env')) {
     }
 }
 
-if (!function_exists('dd')) {
+if (! function_exists('dd')) {
     /**
      * Dump and die - Affiche une variable et arrête l'exécution
      */
@@ -44,7 +44,7 @@ if (!function_exists('dd')) {
     }
 }
 
-if (!function_exists('dump')) {
+if (! function_exists('dump')) {
     /**
      * Dump - Affiche une variable sans arrêter l'exécution
      */
@@ -56,7 +56,7 @@ if (!function_exists('dump')) {
     }
 }
 
-if (!function_exists('value')) {
+if (! function_exists('value')) {
     /**
      * Retourne la valeur par défaut d'une valeur donnée
      */
@@ -66,7 +66,7 @@ if (!function_exists('value')) {
     }
 }
 
-if (!function_exists('tap')) {
+if (! function_exists('tap')) {
     /**
      * Appelle une callback avec la valeur et retourne la valeur
      */
@@ -82,12 +82,54 @@ if (!function_exists('tap')) {
     }
 }
 
-if (!function_exists('with')) {
+if (! function_exists('with')) {
     /**
      * Retourne la valeur donnée
      */
     function with(mixed $value, ?callable $callback = null): mixed
     {
         return $callback === null ? $value : $callback($value);
+    }
+}
+
+if (! function_exists('config')) {
+    /**
+     * Get / set the specified configuration value
+     *
+     * @param array<string, mixed>|string|null $key
+     * @param mixed $default
+     * @return mixed
+     */
+    function config(array|string|null $key = null, mixed $default = null): mixed
+    {
+        // This will be properly implemented when integrated with Application
+        // For now, return default
+        return $default;
+    }
+}
+
+if (! function_exists('route')) {
+    /**
+     * Generate URL for named route or get Router instance
+     *
+     * @param string|null $name Route name
+     * @param array<string, string|int> $params Route parameters
+     * @return \Elarion\Routing\Router|string Router instance or generated URL
+     */
+    function route(?string $name = null, array $params = []): \Elarion\Routing\Router|string
+    {
+        // This will be properly implemented when integrated with Application
+        // For now, return a placeholder
+        static $router = null;
+
+        if ($router === null) {
+            $router = new \Elarion\Routing\Router();
+        }
+
+        if ($name === null) {
+            return $router;
+        }
+
+        return $router->url($name, $params);
     }
 }
