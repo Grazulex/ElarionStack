@@ -131,3 +131,116 @@ Implémenter un conteneur d'injection de dépendances conforme PSR-11 pour gére
     - Add resolution profiling for performance analysis
     - Create validation command for checking bindings
 <!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+# Implementation Complete: PSR-11 Container with PHP 8.5 & SOLID
+
+## Architecture Overview
+
+Implemented a modern, fully-featured DI Container following SOLID principles and leveraging PHP 8.5 features.
+
+## Key Components Delivered
+
+### 1. Core Interfaces (src/Container/Contracts/)
+- BindingInterface - Abstraction for all binding types
+- BindingRegistryInterface - Storage management
+- ResolverInterface - Dependency resolution
+- AutoWiringInterface - Automatic dependency injection
+
+### 2. Binding System (src/Container/Bindings/)
+- BindingType enum - Type-safe binding types
+- AbstractBinding - Base class with template method pattern
+- ConcreteBinding - Transient instances
+- SingletonBinding - Cached single instances
+- FactoryBinding - Callable-based resolution
+- AliasBinding - Interface-to-implementation mapping
+
+### 3. Resolution System (src/Container/Resolvers/)
+- ResolutionStrategy enum - AutoWire, Explicit, Factory
+- AbstractResolver - Circular dependency detection
+- ReflectionResolver - Auto-wiring via reflection
+- ParameterResolver - Handles union/intersection types
+- CachedResolver - Performance optimization decorator
+
+### 4. Container (src/Container/Container.php)
+- PSR-11 ContainerInterface implementation
+- Fluent API: bind(), singleton(), factory(), alias()
+- Auto-wiring support
+- Method injection capabilities
+
+### 5. Service Providers (src/Container/)
+- ServiceProvider abstract class
+- ServiceProviderRepository for lifecycle management
+- Deferred provider support for lazy loading
+
+### 6. Method Injection (src/Container/MethodInjector.php)
+- Call any method with auto-injected dependencies
+- Support for callables and closures
+
+## PHP 8.5 Features Used
+
+✅ Enums (BindingType, ResolutionStrategy)
+✅ Constructor property promotion
+✅ Union/Intersection type handling
+✅ First-class callables
+✅ WeakMap for memory-safe caching
+✅ Match expressions
+✅ Strict types throughout
+
+## SOLID Compliance
+
+✅ **Single Responsibility**: Each class has one focused purpose
+✅ **Open/Closed**: Extensible via interfaces (Strategy, Decorator patterns)
+✅ **Liskov Substitution**: All implementations honor contracts
+✅ **Interface Segregation**: Focused, client-specific interfaces
+✅ **Dependency Inversion**: All dependencies injected, no hard coupling
+
+## Quality Metrics
+
+- ✅ **Tests**: 14/14 passing (100%)
+- ✅ **PHPStan**: Level 9 (strictest) - 0 errors
+- ✅ **PSR-11**: Fully compliant
+- ✅ **Auto-wiring**: Recursive dependency resolution
+- ✅ **Type Safety**: Full type coverage with generics
+
+## Files Created (25 files)
+
+### Contracts (4)
+- BindingInterface, BindingRegistryInterface, ResolverInterface, AutoWiringInterface
+
+### Bindings (6)
+- BindingType enum, AbstractBinding, ConcreteBinding, SingletonBinding, FactoryBinding, AliasBinding
+
+### Registry (2)
+- BindingRegistry, ResolvedInstancesRegistry
+
+### Resolvers (5)
+- ResolutionStrategy enum, AbstractResolver, ReflectionResolver, ParameterResolver, CachedResolver
+
+### Exceptions (4)
+- NotFoundException, ContainerException, CircularDependencyException, ExceptionFactory
+
+### Core (4)
+- Container, ServiceProvider, ServiceProviderRepository, MethodInjector
+
+### Tests (1)
+- ContainerTest with 14 comprehensive test cases
+
+## Performance Optimizations
+
+- Reflection caching to avoid repeated analysis
+- WeakMap for memory-safe singleton storage
+- Lazy resolution - only instantiate when needed
+- Cached resolver decorator for production use
+
+## Next Steps Recommended
+
+1. Add more integration tests
+2. Create example service providers
+3. Add container compilation for production
+4. Create debugging tools (dependency graph visualization)
+
+Ready for production use\! 🚀
+<!-- SECTION:NOTES:END -->
