@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@Claude'
 created_date: '2025-10-21 19:58'
-updated_date: '2025-10-21 22:14'
+updated_date: '2025-10-21 22:19'
 labels:
   - support
   - utilities
@@ -21,12 +21,12 @@ Implémenter une classe Collection utilitaire pour manipuler des tableaux avec u
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 La Collection implémente les méthodes map, filter, reduce, first, last
-- [ ] #2 La Collection supporte le chaînage de méthodes
-- [ ] #3 La Collection implémente Iterator pour foreach
-- [ ] #4 La Collection supporte pluck, groupBy, sortBy
-- [ ] #5 Les méthodes sont lazy quand approprié
-- [ ] #6 Les tests couvrent toutes les méthodes principales
+- [x] #1 La Collection implémente les méthodes map, filter, reduce, first, last
+- [x] #2 La Collection supporte le chaînage de méthodes
+- [x] #3 La Collection implémente Iterator pour foreach
+- [x] #4 La Collection supporte pluck, groupBy, sortBy
+- [x] #5 Les méthodes sont lazy quand approprié
+- [x] #6 Les tests couvrent toutes les méthodes principales
 <!-- AC:END -->
 
 ## Implementation Plan
