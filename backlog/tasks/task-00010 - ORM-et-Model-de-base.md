@@ -1,7 +1,7 @@
 ---
 id: task-00010
 title: ORM et Model de base
-status: In Progress
+status: Done
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:57'
