@@ -85,6 +85,15 @@ php -S localhost:8000 -t public
 - Accès magique aux propriétés du modèle
 - Support PSR-7 avec conversion HTTP Response
 
+### ✅ Validation
+- **Rule-based architecture** avec Strategy pattern
+- **9 règles built-in**: Required, Email, Min, Max, String, Integer, Numeric, Boolean, Array
+- **String-based rules** avec pipe separator: `"required|email|min:3"`
+- **Règles personnalisées** via Closures et classes Rule
+- **Nested arrays** avec dot notation: `user.email`, `items.*.price`
+- **Messages d'erreur** personnalisables avec placeholders
+- Method `validated()` pour extraire uniquement les données validées
+
 ### ⚙️ Configuration
 - Gestionnaire centralisé de configuration
 - Support fichiers .env avec parsing
@@ -92,7 +101,7 @@ php -S localhost:8000 -t public
 - Valeurs par défaut et types sûrs
 
 ### ✅ Qualité
-- **257 tests** (534 assertions) - 100% passing
+- **312 tests** (601 assertions) - 100% passing
 - **PHPStan level 8** - Analyse statique stricte
 - **PHP-CS-Fixer** - Code style uniforme
 - PHP 8.5 ready avec features modernes
@@ -115,6 +124,9 @@ php -S localhost:8000 -t public
 │   │   └── ConnectionManager.php
 │   ├── Http/
 │   │   └── Resources/    # API Resources + Collections
+│   ├── Validation/
+│   │   ├── Rules/        # Built-in validation rules
+│   │   └── Validator.php # Validation orchestrator
 │   └── Support/          # Helpers
 ├── tests/                # Tests unitaires et intégration
 ├── docs/                 # Documentation complète
@@ -140,7 +152,7 @@ composer quality
 
 ## Roadmap
 
-### ✅ Complété (11/15)
+### ✅ Complété (12/15)
 
 - [x] **Container DI** - PSR-11 avec auto-wiring et service providers
 - [x] **Service Providers** - Système de bootstrapping modulaire
@@ -153,15 +165,15 @@ composer quality
 - [x] **Query Builder** - Interface fluide multi-driver (MySQL, PostgreSQL, SQLite)
 - [x] **ORM Model** - Active Record avec CRUD, timestamps, fillable guard
 - [x] **API Resources** - Transformers avec conditionals, nested resources, collections
+- [x] **Validation** - Rule-based system avec 9 règles built-in, custom rules, nested arrays
 
-### 🚧 À venir (4/15)
+### 🚧 À venir (3/15)
 
-- [ ] **Validation** - Système de règles et messages
 - [ ] **JSON:API Support** - Compliance complète JSON:API spec
 - [ ] **Collection Class** - Collection Laravel-like
 - [ ] **Helper Functions** - Fonctions utilitaires globales
 
-**Progression: 73% (11/15 tasks)**
+**Progression: 80% (12/15 tasks)**
 
 Voir le backlog complet: `backlog task list --plain`
 
