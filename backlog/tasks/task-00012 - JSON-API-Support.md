@@ -29,3 +29,17 @@ Ajouter le support de la spécification JSON:API pour standardiser le format des
 - [ ] #5 Les erreurs suivent le format JSON:API
 - [ ] #6 Les tests vérifient la conformité avec la spec JSON:API
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. Analyser la spécification JSON:API (structure data/included/meta/links/errors)
+2. Créer JsonApiResource class pour resources individuelles (type, id, attributes, relationships)
+3. Créer JsonApiCollection class pour collections avec pagination
+4. Implémenter support des relationships (links, data avec type/id)
+5. Implémenter included resources (compound documents)
+6. Créer JsonApiErrorResponse pour format d'erreurs conforme
+7. Ajouter formatage de pagination avec links (first, last, prev, next)
+8. Écrire tests de conformité avec la spec JSON:API
+9. Vérifier PHPStan level 8 et PHP-CS-Fixer
+<!-- SECTION:PLAN:END -->
