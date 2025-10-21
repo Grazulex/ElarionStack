@@ -76,6 +76,15 @@ php -S localhost:8000 -t public
 - Configuration centralisée et validation
 - Prepared statements automatiques (protection SQL injection)
 
+### 🎨 API Resources
+- **Transformer/Presenter Pattern** pour réponses API structurées
+- JsonResource pour usage générique ou classes personnalisées
+- **Attributs conditionnels** avec `when()` et `mergeWhen()`
+- **Nested Resources** pour relations imbriquées
+- **Collections** avec pagination et métadonnées
+- Accès magique aux propriétés du modèle
+- Support PSR-7 avec conversion HTTP Response
+
 ### ⚙️ Configuration
 - Gestionnaire centralisé de configuration
 - Support fichiers .env avec parsing
@@ -83,7 +92,7 @@ php -S localhost:8000 -t public
 - Valeurs par défaut et types sûrs
 
 ### ✅ Qualité
-- **233 tests** (478 assertions) - 100% passing
+- **257 tests** (534 assertions) - 100% passing
 - **PHPStan level 8** - Analyse statique stricte
 - **PHP-CS-Fixer** - Code style uniforme
 - PHP 8.5 ready avec features modernes
@@ -104,6 +113,8 @@ php -S localhost:8000 -t public
 │   │   ├── Query/        # Query Builder + Grammars
 │   │   ├── Model.php     # ORM Active Record
 │   │   └── ConnectionManager.php
+│   ├── Http/
+│   │   └── Resources/    # API Resources + Collections
 │   └── Support/          # Helpers
 ├── tests/                # Tests unitaires et intégration
 ├── docs/                 # Documentation complète
@@ -129,7 +140,7 @@ composer quality
 
 ## Roadmap
 
-### ✅ Complété (10/15)
+### ✅ Complété (11/15)
 
 - [x] **Container DI** - PSR-11 avec auto-wiring et service providers
 - [x] **Service Providers** - Système de bootstrapping modulaire
@@ -141,16 +152,16 @@ composer quality
 - [x] **Database Connection** - PDO manager avec lazy-loading, multiple connections
 - [x] **Query Builder** - Interface fluide multi-driver (MySQL, PostgreSQL, SQLite)
 - [x] **ORM Model** - Active Record avec CRUD, timestamps, fillable guard
+- [x] **API Resources** - Transformers avec conditionals, nested resources, collections
 
-### 🚧 À venir (5/15)
+### 🚧 À venir (4/15)
 
-- [ ] **API Resources** - Transformers pour réponses JSON
 - [ ] **Validation** - Système de règles et messages
 - [ ] **JSON:API Support** - Compliance complète JSON:API spec
 - [ ] **Collection Class** - Collection Laravel-like
 - [ ] **Helper Functions** - Fonctions utilitaires globales
 
-**Progression: 67% (10/15 tasks)**
+**Progression: 73% (11/15 tasks)**
 
 Voir le backlog complet: `backlog task list --plain`
 
