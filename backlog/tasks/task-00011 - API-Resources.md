@@ -1,9 +1,11 @@
 ---
 id: task-00011
 title: API Resources
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2025-10-21 19:58'
+updated_date: '2025-10-21 21:52'
 labels:
   - api
   - resources
