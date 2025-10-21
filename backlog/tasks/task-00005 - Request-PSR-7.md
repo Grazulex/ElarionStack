@@ -1,9 +1,11 @@
 ---
 id: task-00005
 title: Request PSR-7
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@ai-assistant'
 created_date: '2025-10-21 19:57'
+updated_date: '2025-10-21 20:51'
 labels:
   - http
   - psr-7
