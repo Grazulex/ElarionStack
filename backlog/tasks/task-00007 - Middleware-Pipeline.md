@@ -29,3 +29,15 @@ Créer un système de pipeline pour exécuter des middlewares PSR-15 autour du t
 - [ ] #5 Le pipeline peut être utilisé avec le router
 - [ ] #6 Les tests démontrent l'exécution séquentielle et le court-circuit
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. Check PSR-15 dependency (psr/http-server-middleware) in composer.json
+2. Create MiddlewarePipeline class implementing RequestHandlerInterface
+3. Implement middleware stack with FIFO execution order
+4. Add ability to short-circuit by returning Response early
+5. Create tests for sequential execution, short-circuit, and request/response modification
+6. Integration point for Router to use pipeline
+7. Run quality checks (PHPStan level 9, PHP-CS-Fixer, tests)
+<!-- SECTION:PLAN:END -->
