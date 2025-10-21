@@ -1,9 +1,11 @@
 ---
 id: task-00015
 title: Helper Functions
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@Claude'
 created_date: '2025-10-21 19:58'
+updated_date: '2025-10-21 22:36'
 labels:
   - support
   - helpers
