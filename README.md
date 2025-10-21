@@ -112,6 +112,14 @@ php -S localhost:8000 -t public
 - **Dot notation** pour données imbriquées
 - **Method chaining** pour opérations fluides
 
+### 🛠️ Helper Functions
+- **env()** - Accès variables d'environnement avec conversion automatique de types
+- **config()** - Accès configuration avec dot notation
+- **dd() / dump()** - Debugging avec var_dump et exit optionnel
+- **response()** - Création rapide de réponses HTTP (JSON automatique pour arrays/objects)
+- **collect()** - Création d'instances Collection
+- **Bonus**: value(), tap(), with(), route()
+
 ### ⚙️ Configuration
 - Gestionnaire centralisé de configuration
 - Support fichiers .env avec parsing
@@ -119,7 +127,7 @@ php -S localhost:8000 -t public
 - Valeurs par défaut et types sûrs
 
 ### ✅ Qualité
-- **171 tests** (317 assertions) - 100% passing
+- **201 tests** (355 assertions) - 100% passing
 - **PHPStan level 8** - Analyse statique stricte
 - **PHP-CS-Fixer** - Code style uniforme
 - PHP 8.5 ready avec features modernes
@@ -173,7 +181,7 @@ composer quality
 
 ## Roadmap
 
-### ✅ Complété (14/15)
+### ✅ Complété (15/15) 🎉
 
 - [x] **Container DI** - PSR-11 avec auto-wiring et service providers
 - [x] **Service Providers** - Système de bootstrapping modulaire
@@ -189,12 +197,9 @@ composer quality
 - [x] **Validation** - Rule-based system avec 9 règles built-in, custom rules, nested arrays
 - [x] **Collection Class** - API fluente avec SPL interfaces, transformations, tri/groupement
 - [x] **JSON:API Support** - Compliance complète JSON:API spec v1.1
+- [x] **Helper Functions** - Fonctions utilitaires env(), config(), dd(), response(), collect()
 
-### 🚧 À venir (1/15)
-
-- [ ] **Helper Functions** - Fonctions utilitaires globales
-
-**Progression: 93% (14/15 tasks)**
+**Progression: 100% (15/15 tasks) ✅**
 
 Voir le backlog complet: `backlog task list --plain`
 

@@ -94,17 +94,25 @@ if (! function_exists('with')) {
 
 if (! function_exists('config')) {
     /**
-     * Get / set the specified configuration value
+     * Get configuration value using dot notation
      *
-     * @param array<string, mixed>|string|null $key
-     * @param mixed $default
-     * @return mixed
+     * @param string|null $key Configuration key (e.g., 'database.host')
+     * @param mixed $default Default value if key not found
+     * @return mixed Configuration value or default
      */
-    function config(array|string|null $key = null, mixed $default = null): mixed
+    function config(?string $key = null, mixed $default = null): mixed
     {
-        // This will be properly implemented when integrated with Application
-        // For now, return default
-        return $default;
+        static $config = null;
+
+        if ($config === null) {
+            $config = new \Elarion\Config\ConfigRepository();
+        }
+
+        if ($key === null) {
+            return $config;
+        }
+
+        return $config->get($key, $default);
     }
 }
 
@@ -131,5 +139,40 @@ if (! function_exists('route')) {
         }
 
         return $router->url($name, $params);
+    }
+}
+
+if (! function_exists('response')) {
+    /**
+     * Create an HTTP response
+     *
+     * @param mixed $data Response data (will be JSON encoded if array/object)
+     * @param int $status HTTP status code
+     * @param array<string, string|array<int, string>> $headers Additional headers
+     * @return \Elarion\Http\Message\Response HTTP Response
+     */
+    function response(
+        mixed $data = '',
+        int $status = 200,
+        array $headers = []
+    ): \Elarion\Http\Message\Response {
+        if (is_array($data) || is_object($data)) {
+            return \Elarion\Http\Message\Response::json($data, $status, $headers);
+        }
+
+        return new \Elarion\Http\Message\Response($status, $headers, (string) $data);
+    }
+}
+
+if (! function_exists('collect')) {
+    /**
+     * Create a Collection instance from the given items
+     *
+     * @param iterable<mixed> $items Items to collect
+     * @return \Elarion\Support\Collection Collection instance
+     */
+    function collect(iterable $items = []): \Elarion\Support\Collection
+    {
+        return new \Elarion\Support\Collection($items);
     }
 }
