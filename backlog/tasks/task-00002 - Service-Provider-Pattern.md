@@ -1,7 +1,7 @@
 ---
 id: task-00002
 title: Service Provider Pattern
-status: To Do
+status: Done
 assignee: []
 created_date: '2025-10-21 19:57'
 updated_date: '2025-10-21 20:19'
