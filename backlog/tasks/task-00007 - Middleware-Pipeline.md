@@ -41,3 +41,40 @@ Créer un système de pipeline pour exécuter des middlewares PSR-15 autour du t
 6. Integration point for Router to use pipeline
 7. Run quality checks (PHPStan level 9, PHP-CS-Fixer, tests)
 <!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Implemented PSR-15 middleware pipeline system with full router integration.
+
+## Components Delivered:
+
+### Core Pipeline (MiddlewarePipeline)
+- PSR-15 RequestHandlerInterface implementation
+- FIFO execution order for middlewares
+- Built-in short-circuit support
+- Recursive handler chain construction
+- Fluent interface (pipe(), setFallbackHandler())
+
+### Router Integration (RouteMiddlewareExecutor)
+- Executes routes through their middleware stack
+- Resolves middlewares from container or instantiates directly
+- Supports callable, string (class name), and MiddlewareInterface
+- Adds route parameters as request attributes
+- Handles both callable and array [Controller, method] handlers
+- Full PSR-11 container integration
+
+### Utilities (CallableMiddleware)
+- Adapter for wrapping closures as PSR-15 MiddlewareInterface
+- Enables using simple callables as middlewares
+
+## Testing:
+- 19 comprehensive tests, 29 assertions - all passing
+- Tests cover: FIFO execution, short-circuit, request/response modification, route integration
+- Full test suite: 137 tests, 259 assertions - all passing
+
+## Quality:
+- PHPStan level 9: clean (0 errors)
+- PHP-CS-Fixer: clean (2 files formatted)
+- Full PSR-15 compliance
+<!-- SECTION:NOTES:END -->
