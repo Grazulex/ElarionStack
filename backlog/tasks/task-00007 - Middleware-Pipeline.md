@@ -1,9 +1,11 @@
 ---
 id: task-00007
 title: Middleware Pipeline
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2025-10-21 19:57'
+updated_date: '2025-10-21 21:03'
 labels:
   - http
   - middleware
