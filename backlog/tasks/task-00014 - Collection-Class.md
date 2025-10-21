@@ -1,9 +1,11 @@
 ---
 id: task-00014
 title: Collection Class
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@Claude'
 created_date: '2025-10-21 19:58'
+updated_date: '2025-10-21 22:13'
 labels:
   - support
   - utilities
