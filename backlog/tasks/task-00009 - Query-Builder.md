@@ -1,9 +1,11 @@
 ---
 id: task-00009
 title: Query Builder
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2025-10-21 19:57'
+updated_date: '2025-10-21 21:29'
 labels:
   - database
   - query-builder
