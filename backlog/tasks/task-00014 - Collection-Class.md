@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@Claude'
 created_date: '2025-10-21 19:58'
-updated_date: '2025-10-21 22:13'
+updated_date: '2025-10-21 22:14'
 labels:
   - support
   - utilities
@@ -28,3 +28,17 @@ Implémenter une classe Collection utilitaire pour manipuler des tableaux avec u
 - [ ] #5 Les méthodes sont lazy quand approprié
 - [ ] #6 Les tests couvrent toutes les méthodes principales
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. Analyser l'architecture des Collections (Iterator, ArrayAccess, Countable interfaces)
+2. Créer la classe Collection de base avec support Iterator, ArrayAccess, Countable
+3. Implémenter les méthodes de transformation: map, filter, reduce, each
+4. Implémenter les méthodes d'accès: first, last, get, nth
+5. Implémenter les méthodes de tri et groupement: sort, sortBy, groupBy, pluck
+6. Implémenter les méthodes de chaînage et lazy evaluation où approprié
+7. Ajouter méthodes utilitaires: count, isEmpty, toArray, toJson
+8. Écrire tests complets pour toutes les méthodes
+9. Vérifier PHPStan level 8 et PHP-CS-Fixer
+<!-- SECTION:PLAN:END -->
