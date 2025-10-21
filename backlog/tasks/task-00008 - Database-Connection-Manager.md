@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 21:11'
+updated_date: '2025-10-21 21:16'
 labels:
   - database
   - pdo
@@ -21,12 +21,12 @@ Créer un gestionnaire de connexions PDO pour supporter plusieurs connexions bas
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Le gestionnaire peut créer des connexions PDO depuis la configuration
-- [ ] #2 Support de MySQL, PostgreSQL, SQLite
-- [ ] #3 Les connexions sont lazy-loaded
-- [ ] #4 Support de plusieurs connexions nommées
-- [ ] #5 Les erreurs de connexion sont gérées avec des exceptions claires
-- [ ] #6 Les tests utilisent SQLite en mémoire
+- [x] #1 Le gestionnaire peut créer des connexions PDO depuis la configuration
+- [x] #2 Support de MySQL, PostgreSQL, SQLite
+- [x] #3 Les connexions sont lazy-loaded
+- [x] #4 Support de plusieurs connexions nommées
+- [x] #5 Les erreurs de connexion sont gérées avec des exceptions claires
+- [x] #6 Les tests utilisent SQLite en mémoire
 <!-- AC:END -->
 
 ## Implementation Plan
