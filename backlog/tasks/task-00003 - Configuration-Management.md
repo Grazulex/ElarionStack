@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@ai-assistant'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 20:24'
+updated_date: '2025-10-21 20:29'
 labels:
   - core
   - config
@@ -21,11 +21,11 @@ Implémenter un système de gestion de configuration pour charger et accéder au
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Le système peut charger des fichiers de configuration PHP depuis config/
-- [ ] #2 On peut accéder aux valeurs avec notation point (ex: 'app.name')
-- [ ] #3 Le système supporte des valeurs par défaut
-- [ ] #4 Les configurations sont cachées en production
-- [ ] #5 Les tests vérifient le chargement et l'accès aux configurations
+- [x] #1 Le système peut charger des fichiers de configuration PHP depuis config/
+- [x] #2 On peut accéder aux valeurs avec notation point (ex: 'app.name')
+- [x] #3 Le système supporte des valeurs par défaut
+- [x] #4 Les configurations sont cachées en production
+- [x] #5 Les tests vérifient le chargement et l'accès aux configurations
 <!-- AC:END -->
 
 ## Implementation Plan
