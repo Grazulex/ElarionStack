@@ -1,7 +1,7 @@
 ---
 id: task-00007
 title: Middleware Pipeline
-status: In Progress
+status: Done
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:57'
