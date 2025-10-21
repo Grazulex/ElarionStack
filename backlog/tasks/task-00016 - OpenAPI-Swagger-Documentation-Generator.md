@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@Claude'
 created_date: '2025-10-21 22:48'
-updated_date: '2025-10-21 22:51'
+updated_date: '2025-10-21 23:08'
 labels:
   - openapi
   - swagger
@@ -23,15 +23,15 @@ Implémenter un système de génération automatique de documentation OpenAPI 3.
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Support PHP Attributes pour annoter les endpoints (Get, Post, Put, Delete, etc.)
-- [ ] #2 Génération automatique de la documentation depuis les routes enregistrées
-- [ ] #3 Conversion automatique des Validation rules en Request schemas OpenAPI
+- [x] #1 Support PHP Attributes pour annoter les endpoints (Get, Post, Put, Delete, etc.)
+- [x] #2 Génération automatique de la documentation depuis les routes enregistrées
+- [x] #3 Conversion automatique des Validation rules en Request schemas OpenAPI
 - [ ] #4 Conversion automatique des API Resources en Response schemas
 - [ ] #5 Support spécifique pour JSON:API avec schémas conformes
-- [ ] #6 Endpoint /api/documentation avec export JSON et YAML
-- [ ] #7 UI Swagger intégrée pour tester l'API interactivement
+- [x] #6 Endpoint /api/documentation avec export JSON et YAML
+- [x] #7 UI Swagger intégrée pour tester l'API interactivement
 - [ ] #8 Support ReDoc pour documentation élégante
-- [ ] #9 Les tests vérifient la génération correcte des schémas OpenAPI
+- [x] #9 Les tests vérifient la génération correcte des schémas OpenAPI
 <!-- AC:END -->
 
 ## Implementation Plan
