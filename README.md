@@ -85,6 +85,15 @@ php -S localhost:8000 -t public
 - Accès magique aux propriétés du modèle
 - Support PSR-7 avec conversion HTTP Response
 
+### 📋 JSON:API Support
+- **Spec v1.1 compliant** - Conformité complète avec spécification JSON:API
+- **JsonApiResource** - Resources avec type, id, attributes, relationships
+- **JsonApiCollection** - Collections avec pagination standardisée
+- **Compound Documents** - Included resources avec déduplication automatique
+- **Pagination Links** - Liens first/last/prev/next au format spec
+- **JsonApiErrorResponse** - Format d'erreur structuré avec helpers
+- **Content-Type** - Header `application/vnd.api+json` automatique
+
 ### ✅ Validation
 - **Rule-based architecture** avec Strategy pattern
 - **9 règles built-in**: Required, Email, Min, Max, String, Integer, Numeric, Boolean, Array
@@ -110,7 +119,7 @@ php -S localhost:8000 -t public
 - Valeurs par défaut et types sûrs
 
 ### ✅ Qualité
-- **373 tests** (678 assertions) - 100% passing
+- **171 tests** (317 assertions) - 100% passing
 - **PHPStan level 8** - Analyse statique stricte
 - **PHP-CS-Fixer** - Code style uniforme
 - PHP 8.5 ready avec features modernes
@@ -126,13 +135,14 @@ php -S localhost:8000 -t public
 │   ├── Http/
 │   │   ├── Message/      # PSR-7 Messages
 │   │   ├── Factories/    # PSR-17 Factories
-│   │   └── Middleware/   # PSR-15 Middleware Pipeline
+│   │   ├── Middleware/   # PSR-15 Middleware Pipeline
+│   │   └── Resources/
+│   │       ├── JsonApi/  # JSON:API Resources
+│   │       └── Resource.php # API Resource Transformers
 │   ├── Database/
 │   │   ├── Query/        # Query Builder + Grammars
 │   │   ├── Model.php     # ORM Active Record
 │   │   └── ConnectionManager.php
-│   ├── Http/
-│   │   └── Resources/    # API Resources + Collections
 │   ├── Validation/
 │   │   ├── Rules/        # Built-in validation rules
 │   │   └── Validator.php # Validation orchestrator
@@ -163,7 +173,7 @@ composer quality
 
 ## Roadmap
 
-### ✅ Complété (13/15)
+### ✅ Complété (14/15)
 
 - [x] **Container DI** - PSR-11 avec auto-wiring et service providers
 - [x] **Service Providers** - Système de bootstrapping modulaire
@@ -178,13 +188,13 @@ composer quality
 - [x] **API Resources** - Transformers avec conditionals, nested resources, collections
 - [x] **Validation** - Rule-based system avec 9 règles built-in, custom rules, nested arrays
 - [x] **Collection Class** - API fluente avec SPL interfaces, transformations, tri/groupement
+- [x] **JSON:API Support** - Compliance complète JSON:API spec v1.1
 
-### 🚧 À venir (2/15)
+### 🚧 À venir (1/15)
 
-- [ ] **JSON:API Support** - Compliance complète JSON:API spec
 - [ ] **Helper Functions** - Fonctions utilitaires globales
 
-**Progression: 87% (13/15 tasks)**
+**Progression: 93% (14/15 tasks)**
 
 Voir le backlog complet: `backlog task list --plain`
 

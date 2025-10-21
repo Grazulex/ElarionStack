@@ -188,7 +188,13 @@ final class Response extends Message implements ResponseInterface
     ): self {
         $json = json_encode($data, $flags);
 
-        $headers['Content-Type'] = 'application/json';
+        // With JSON_THROW_ON_ERROR, json_encode never returns false
+        assert(is_string($json));
+
+        // Only set Content-Type if not already provided
+        if (! isset($headers['Content-Type'])) {
+            $headers['Content-Type'] = 'application/json';
+        }
 
         return new self($statusCode, $headers, $json);
     }
