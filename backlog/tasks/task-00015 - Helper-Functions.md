@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@Claude'
 created_date: '2025-10-21 19:58'
-updated_date: '2025-10-21 22:37'
+updated_date: '2025-10-21 22:42'
 labels:
   - support
   - helpers
@@ -22,12 +22,12 @@ Créer un ensemble de fonctions helper globales pour faciliter les tâches coura
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Fonction env() pour lire les variables d'environnement
-- [ ] #2 Fonction config() pour accéder à la configuration
-- [ ] #3 Fonctions dd() et dump() pour le debugging
-- [ ] #4 Fonction response() pour créer des réponses
-- [ ] #5 Fonction collect() pour créer des collections
-- [ ] #6 Les tests vérifient le comportement de chaque helper
+- [x] #1 Fonction env() pour lire les variables d'environnement
+- [x] #2 Fonction config() pour accéder à la configuration
+- [x] #3 Fonctions dd() et dump() pour le debugging
+- [x] #4 Fonction response() pour créer des réponses
+- [x] #5 Fonction collect() pour créer des collections
+- [x] #6 Les tests vérifient le comportement de chaque helper
 <!-- AC:END -->
 
 ## Implementation Plan
