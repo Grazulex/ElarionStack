@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@ai-assistant'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 20:52'
+updated_date: '2025-10-21 21:00'
 labels:
   - http
   - psr-7
@@ -21,10 +21,10 @@ Implémenter une classe Response conforme PSR-7 pour créer et manipuler les ré
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 La classe implémente PSR-7 ResponseInterface
-- [ ] #2 On peut créer des réponses avec status code, headers, body
-- [ ] #3 On peut créer facilement des réponses JSON
-- [ ] #4 Les objets Response sont immutables
+- [x] #1 La classe implémente PSR-7 ResponseInterface
+- [x] #2 On peut créer des réponses avec status code, headers, body
+- [x] #3 On peut créer facilement des réponses JSON
+- [x] #4 Les objets Response sont immutables
 - [ ] #5 La classe peut émettre la réponse au client
-- [ ] #6 Les tests vérifient la conformité PSR-7
+- [x] #6 Les tests vérifient la conformité PSR-7
 <!-- AC:END -->
