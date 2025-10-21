@@ -1,7 +1,7 @@
 ---
 id: task-00014
 title: Collection Class
-status: In Progress
+status: Done
 assignee:
   - '@Claude'
 created_date: '2025-10-21 19:58'
