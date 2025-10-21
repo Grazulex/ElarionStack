@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 21:42'
+updated_date: '2025-10-21 21:46'
 labels:
   - database
   - orm
@@ -22,12 +22,12 @@ Créer un système ORM simple avec une classe Model de base pour mapper les tabl
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Une classe Model abstraite existe avec méthodes find(), all(), save(), delete()
-- [ ] #2 Les models peuvent définir leur table, primary key, fillable
-- [ ] #3 Les models utilisent le Query Builder en interne
-- [ ] #4 Support des timestamps (created_at, updated_at) automatiques
-- [ ] #5 Les attributs du model sont accessibles comme propriétés
-- [ ] #6 Les tests démontrent CRUD complet sur un model
+- [x] #1 Une classe Model abstraite existe avec méthodes find(), all(), save(), delete()
+- [x] #2 Les models peuvent définir leur table, primary key, fillable
+- [x] #3 Les models utilisent le Query Builder en interne
+- [x] #4 Support des timestamps (created_at, updated_at) automatiques
+- [x] #5 Les attributs du model sont accessibles comme propriétés
+- [x] #6 Les tests démontrent CRUD complet sur un model
 <!-- AC:END -->
 
 ## Implementation Plan
