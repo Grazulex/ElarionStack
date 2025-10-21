@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2025-10-21 19:57'
-updated_date: '2025-10-21 21:30'
+updated_date: '2025-10-21 21:40'
 labels:
   - database
   - query-builder
@@ -21,12 +21,12 @@ Implémenter un Query Builder fluent pour construire et exécuter des requêtes 
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Le builder supporte SELECT, INSERT, UPDATE, DELETE
-- [ ] #2 Le builder supporte WHERE, JOIN, ORDER BY, GROUP BY, LIMIT
-- [ ] #3 Toutes les valeurs utilisent des paramètres préparés (protection SQL injection)
-- [ ] #4 Le builder peut retourner des tableaux ou des objets
-- [ ] #5 API fluente chainable (ex: ->where()->orderBy()->get())
-- [ ] #6 Les tests couvrent tous les types de requêtes et clauses
+- [x] #1 Le builder supporte SELECT, INSERT, UPDATE, DELETE
+- [x] #2 Le builder supporte WHERE, JOIN, ORDER BY, GROUP BY, LIMIT
+- [x] #3 Toutes les valeurs utilisent des paramètres préparés (protection SQL injection)
+- [x] #4 Le builder peut retourner des tableaux ou des objets
+- [x] #5 API fluente chainable (ex: ->where()->orderBy()->get())
+- [x] #6 Les tests couvrent tous les types de requêtes et clauses
 <!-- AC:END -->
 
 ## Implementation Plan
