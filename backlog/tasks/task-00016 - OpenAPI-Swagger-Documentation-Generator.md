@@ -1,9 +1,11 @@
 ---
 id: task-00016
 title: OpenAPI/Swagger Documentation Generator
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@Claude'
 created_date: '2025-10-21 22:48'
+updated_date: '2025-10-21 22:50'
 labels:
   - openapi
   - swagger
