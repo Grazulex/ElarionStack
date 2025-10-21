@@ -1,7 +1,7 @@
 ---
 id: task-00006
 title: Response PSR-7
-status: In Progress
+status: Done
 assignee:
   - '@ai-assistant'
 created_date: '2025-10-21 19:57'
