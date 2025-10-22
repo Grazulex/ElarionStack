@@ -2,36 +2,79 @@
 
 declare(strict_types=1);
 
-use Elarion\Routing\Router;
 use App\Controllers\ExampleController;
 
 /**
  * API Routes
  *
  * Register your API routes here.
- * All routes are automatically prefixed with the API prefix defined in config.
+ * The $router variable is automatically available from public/index.php
+ *
+ * Route Methods:
+ * - $router->get($uri, $handler)
+ * - $router->post($uri, $handler)
+ * - $router->put($uri, $handler)
+ * - $router->patch($uri, $handler)
+ * - $router->delete($uri, $handler)
+ *
+ * Route Parameters:
+ * - Use {paramName} in the URI: '/users/{id}'
+ * - Add constraints: ->where('id', '[0-9]+')
+ * - Name routes: ->name('users.show')
+ *
+ * Route Groups:
+ * - Group routes with common attributes
+ * - Available options: prefix, middleware, namespace
  */
 
-// Example routes - feel free to modify or remove these
-$router->group(['prefix' => '/api'], function (Router $router) {
+// Example API routes - feel free to modify or remove
+$router->group(['prefix' => '/api'], function ($router) {
 
     // Welcome endpoint
     $router->get('/example', [ExampleController::class, 'index'])
         ->name('example.index');
 
-    // Example resource routes
+    // Show specific resource
     $router->get('/example/{id}', [ExampleController::class, 'show'])
         ->where('id', '[0-9]+')
         ->name('example.show');
 
+    // Create new resource
     $router->post('/example', [ExampleController::class, 'store'])
         ->name('example.store');
 
-    // Your routes here
-    // $router->get('/users', [UserController::class, 'index']);
-    // $router->post('/users', [UserController::class, 'store']);
-    // $router->get('/users/{id}', [UserController::class, 'show']);
-    // $router->put('/users/{id}', [UserController::class, 'update']);
-    // $router->delete('/users/{id}', [UserController::class, 'destroy']);
+    // Update resource
+    $router->put('/example/{id}', [ExampleController::class, 'update'])
+        ->where('id', '[0-9]+')
+        ->name('example.update');
+
+    // Delete resource
+    $router->delete('/example/{id}', [ExampleController::class, 'destroy'])
+        ->where('id', '[0-9]+')
+        ->name('example.destroy');
 
 });
+
+// Your custom routes here
+// Example:
+// $router->group(['prefix' => '/api/v1'], function ($router) {
+//
+//     // User routes
+//     $router->get('/users', [UserController::class, 'index']);
+//     $router->post('/users', [UserController::class, 'store']);
+//     $router->get('/users/{id}', [UserController::class, 'show'])->where('id', '[0-9]+');
+//     $router->put('/users/{id}', [UserController::class, 'update'])->where('id', '[0-9]+');
+//     $router->delete('/users/{id}', [UserController::class, 'destroy'])->where('id', '[0-9]+');
+//
+//     // Post routes
+//     $router->get('/posts', [PostController::class, 'index']);
+//     $router->post('/posts', [PostController::class, 'store']);
+//     $router->get('/posts/{id}', [PostController::class, 'show'])->where('id', '[0-9]+');
+//
+//     // Nested resource: post comments
+//     $router->get('/posts/{postId}/comments', [CommentController::class, 'index'])
+//         ->where('postId', '[0-9]+');
+//     $router->post('/posts/{postId}/comments', [CommentController::class, 'store'])
+//         ->where('postId', '[0-9]+');
+//
+// });

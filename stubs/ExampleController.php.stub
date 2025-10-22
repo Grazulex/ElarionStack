@@ -10,13 +10,20 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * Example Controller
  *
- * This is a simple example controller to help you get started.
+ * This is a simple example controller to help you get started with ElarionStack.
  * Feel free to modify or delete this file.
+ *
+ * All controller methods should:
+ * - Accept ServerRequestInterface as the first parameter
+ * - Accept route parameters after the request
+ * - Return a Response object
  */
 class ExampleController
 {
     /**
-     * Display a simple welcome message
+     * Display a welcome message with API information
+     *
+     * GET /api/example
      */
     public function index(ServerRequestInterface $request): Response
     {
@@ -26,16 +33,23 @@ class ExampleController
             'framework' => 'ElarionStack',
             'timestamp' => date('c'),
             'endpoints' => [
-                'status' => '/api/example',
+                'index' => 'GET /api/example',
+                'show' => 'GET /api/example/{id}',
+                'store' => 'POST /api/example',
                 'docs' => '/api/documentation',
             ],
         ]);
     }
 
     /**
-     * Example endpoint with route parameter
+     * Display a specific resource
+     *
+     * GET /api/example/{id}
+     *
+     * @param ServerRequestInterface $request The HTTP request
+     * @param int $id The resource ID from the route parameter
      */
-    public function show(int $id): Response
+    public function show(ServerRequestInterface $request, int $id): Response
     {
         return Response::json([
             'message' => 'Example resource retrieved',
@@ -43,19 +57,25 @@ class ExampleController
             'data' => [
                 'title' => "Example Item #{$id}",
                 'description' => 'This is an example item',
+                'status' => 'active',
                 'created_at' => date('Y-m-d H:i:s'),
             ],
         ]);
     }
 
     /**
-     * Example endpoint with validation
+     * Create a new resource with validation
+     *
+     * POST /api/example
+     *
+     * Expected body: {"name": "string"}
      */
     public function store(ServerRequestInterface $request): Response
     {
         $data = $request->getParsedBody();
 
-        // Example validation (you can use Elarion\Validation\Validator)
+        // Simple validation example
+        // For more advanced validation, use Elarion\Validation\Validator
         if (empty($data['name'] ?? null)) {
             return Response::json([
                 'error' => 'Validation failed',
@@ -65,13 +85,53 @@ class ExampleController
             ], 422);
         }
 
+        // Simulate resource creation
         return Response::json([
             'message' => 'Resource created successfully',
             'data' => [
                 'id' => rand(1, 1000),
                 'name' => $data['name'],
+                'description' => $data['description'] ?? null,
                 'created_at' => date('Y-m-d H:i:s'),
             ],
         ], 201);
+    }
+
+    /**
+     * Update an existing resource
+     *
+     * PUT /api/example/{id}
+     *
+     * @param ServerRequestInterface $request The HTTP request
+     * @param int $id The resource ID from the route parameter
+     */
+    public function update(ServerRequestInterface $request, int $id): Response
+    {
+        $data = $request->getParsedBody();
+
+        return Response::json([
+            'message' => 'Resource updated successfully',
+            'data' => [
+                'id' => $id,
+                'name' => $data['name'] ?? 'Updated Item',
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+        ]);
+    }
+
+    /**
+     * Delete a resource
+     *
+     * DELETE /api/example/{id}
+     *
+     * @param ServerRequestInterface $request The HTTP request
+     * @param int $id The resource ID from the route parameter
+     */
+    public function destroy(ServerRequestInterface $request, int $id): Response
+    {
+        return Response::json([
+            'message' => 'Resource deleted successfully',
+            'id' => $id,
+        ]);
     }
 }

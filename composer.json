@@ -30,7 +30,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Elarion\\": "src/"
+            "Elarion\\": "src/",
+            "App\\": "app/"
         },
         "files": [
             "src/Support/helpers.php"
@@ -65,6 +66,9 @@
             "@php -r \"if (!file_exists('app/Controllers/ExampleController.php') && file_exists('vendor/elarion/elarionstack/stubs/ExampleController.php.stub')) { copy('vendor/elarion/elarionstack/stubs/ExampleController.php.stub', 'app/Controllers/ExampleController.php'); echo '✓ Created ExampleController.php\\n'; }\"",
             "@php -r \"if (!file_exists('routes/api.php') && file_exists('vendor/elarion/elarionstack/stubs/api.php.stub')) { copy('vendor/elarion/elarionstack/stubs/api.php.stub', 'routes/api.php'); echo '✓ Created routes/api.php with example routes\\n'; }\"",
             "@php -r \"if (!file_exists('.env') && file_exists('.env.example')) { copy('.env.example', '.env'); echo '✓ Created .env file from .env.example\\n'; }\"",
+            "@php -r \"echo '\\n🔄 Updating autoloader...\\n';\"",
+            "@composer dump-autoload --quiet",
+            "@php -r \"echo '✓ Autoloader updated\\n';\"",
             "@php -r \"echo '\\n✅ ElarionStack project ready!\\n';\"",
             "@php -r \"echo '\\n📚 Next steps:\\n';\"",
             "@php -r \"echo '  1. Configure .env file with your database credentials\\n';\"",
