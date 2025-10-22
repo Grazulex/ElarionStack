@@ -1,9 +1,16 @@
 {
     "name": "elarion/elarionstack",
-    "description": "Un framework PHP moderne pour créer des API expressives et maintenables",
-    "keywords": ["framework", "api", "rest", "json-api", "graphql", "php"],
+    "description": "Modern PHP framework for building expressive and maintainable APIs with support for REST, JSON:API, and GraphQL",
+    "keywords": ["framework", "api", "rest", "json-api", "graphql", "php", "php8", "psr-7", "psr-11", "psr-15", "openapi", "swagger"],
     "license": "MIT",
     "type": "project",
+    "homepage": "https://github.com/elarion/elarionstack",
+    "authors": [
+        {
+            "name": "ElarionStack Team",
+            "email": "team@elarionstack.dev"
+        }
+    ],
     "require": {
         "php": "^8.4 || ^8.5",
         "psr/http-message": "^2.0",
