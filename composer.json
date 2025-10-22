@@ -53,6 +53,24 @@
             "@analyse",
             "@format:check",
             "@test"
+        ],
+        "post-create-project-cmd": [
+            "@php -r \"echo '\\n🎉 Setting up your ElarionStack project...\\n\\n';\"",
+            "@php -r \"if (!is_dir('app')) { mkdir('app', 0755, true); echo '✓ Created app/ directory\\n'; }\"",
+            "@php -r \"if (!is_dir('app/Controllers')) { mkdir('app/Controllers', 0755, true); echo '✓ Created app/Controllers/ directory\\n'; }\"",
+            "@php -r \"if (!is_dir('app/Models')) { mkdir('app/Models', 0755, true); echo '✓ Created app/Models/ directory\\n'; }\"",
+            "@php -r \"if (!is_dir('app/Resources')) { mkdir('app/Resources', 0755, true); echo '✓ Created app/Resources/ directory\\n'; }\"",
+            "@php -r \"if (!is_dir('app/Middleware')) { mkdir('app/Middleware', 0755, true); echo '✓ Created app/Middleware/ directory\\n'; }\"",
+            "@php -r \"echo '\\n📝 Creating example files...\\n';\"",
+            "@php -r \"if (!file_exists('app/Controllers/ExampleController.php') && file_exists('vendor/elarion/elarionstack/stubs/ExampleController.php.stub')) { copy('vendor/elarion/elarionstack/stubs/ExampleController.php.stub', 'app/Controllers/ExampleController.php'); echo '✓ Created ExampleController.php\\n'; }\"",
+            "@php -r \"if (!file_exists('routes/api.php') && file_exists('vendor/elarion/elarionstack/stubs/api.php.stub')) { copy('vendor/elarion/elarionstack/stubs/api.php.stub', 'routes/api.php'); echo '✓ Created routes/api.php with example routes\\n'; }\"",
+            "@php -r \"if (!file_exists('.env') && file_exists('.env.example')) { copy('.env.example', '.env'); echo '✓ Created .env file from .env.example\\n'; }\"",
+            "@php -r \"echo '\\n✅ ElarionStack project ready!\\n';\"",
+            "@php -r \"echo '\\n📚 Next steps:\\n';\"",
+            "@php -r \"echo '  1. Configure .env file with your database credentials\\n';\"",
+            "@php -r \"echo '  2. Start server: php -S localhost:8000 -t public\\n';\"",
+            "@php -r \"echo '  3. Visit: http://localhost:8000/api/example\\n';\"",
+            "@php -r \"echo '  4. Read docs: https://github.com/elarion/elarionstack#documentation\\n\\n';\""
         ]
     },
     "config": {

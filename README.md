@@ -591,11 +591,17 @@ After installation, your project structure will look like:
 
 ```
 my-api/
+├── app/             # Your application code
+│   ├── Controllers/ # Your controllers
+│   ├── Models/      # Your models
+│   └── Resources/   # Your API resources
 ├── config/          # Configuration files
 ├── public/          # Web root (index.php)
 ├── routes/          # Route definitions
-├── src/             # Framework source code
-├── tests/           # Test suite
+├── vendor/          # Composer dependencies
+│   └── elarion/
+│       └── elarionstack/  # Framework code is here
+├── tests/           # Your test suite
 ├── .env.example     # Environment template
 └── composer.json    # Dependencies
 ```
@@ -1175,29 +1181,47 @@ $users = DB::table('users')
 
 ## 🏗️ Project Structure
 
+### Your Application Structure (after `composer create-project`)
+
+When you create a new project with `composer create-project elarion/elarionstack my-api`, you get:
+
 ```
-elarionstack/
+my-api/
+├── app/                     # Your application code
+│   ├── Controllers/         # Your HTTP controllers
+│   ├── Models/              # Your database models
+│   ├── Resources/           # Your API resources
+│   └── Middleware/          # Your custom middleware
 ├── config/                  # Configuration files
 │   ├── app.php
 │   ├── database.php
 │   └── openapi.php
-├── docs/                    # Documentation
-│   ├── API-Resources.md
-│   ├── Container-DI.md
-│   ├── Database-Connection-Manager.md
-│   ├── JSON-API.md
-│   ├── OpenAPI.md
-│   ├── ORM-Model.md
-│   ├── Query-Builder.md
-│   ├── Router-HTTP.md
-│   ├── Validation.md
-│   └── ...
 ├── public/                  # Web root
 │   └── index.php           # Entry point
 ├── routes/                  # Route definitions
 │   ├── api.php
 │   └── web.php
-├── src/                     # Framework source
+├── vendor/                  # Composer dependencies
+│   └── elarion/
+│       └── elarionstack/   # Framework code (don't edit)
+│           ├── src/        # Framework source code
+│           ├── tests/      # Framework tests
+│           └── docs/       # Framework documentation
+├── tests/                   # Your application tests
+│   ├── Unit/
+│   └── Feature/
+├── .env.example            # Environment template
+├── composer.json           # Your dependencies
+└── README.md               # Your project readme
+```
+
+### Framework Repository Structure (for contributors)
+
+If you're contributing to ElarionStack itself (via `git clone`):
+
+```
+elarionstack/
+├── src/                     # Framework source code
 │   ├── Container/          # DI Container (PSR-11)
 │   ├── Database/           # Database layer
 │   │   ├── Query/         # Query builder
@@ -1216,18 +1240,24 @@ elarionstack/
 │   │   ├── Collection.php
 │   │   └── helpers.php
 │   └── Validation/        # Validation system
-├── tests/                  # Test suite
+├── tests/                  # Framework test suite
 │   ├── Unit/
 │   └── Integration/
+├── docs/                   # Framework documentation
+│   ├── API-Resources.md
+│   ├── Container-DI.md
+│   ├── Database-Connection-Manager.md
+│   └── ...
+├── config/                 # Default configuration
 ├── backlog/               # Project management
-│   ├── tasks/            # Task tracking
-│   └── docs/             # Project docs
 ├── .env.example          # Environment template
-├── composer.json         # Dependencies
+├── composer.json         # Framework dependencies
 ├── phpstan.neon          # Static analysis config
 ├── phpunit.xml           # Test configuration
 └── README.md             # This file
 ```
+
+> **Note:** When using ElarionStack via Composer, you work in the **app/** directory for your code. The framework itself lives in **vendor/elarion/elarionstack/** and should not be modified directly.
 
 ---
 

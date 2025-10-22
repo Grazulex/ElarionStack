@@ -1,0 +1,37 @@
+<?php
+
+declare(strict_types=1);
+
+use Elarion\Routing\Router;
+use App\Controllers\ExampleController;
+
+/**
+ * API Routes
+ *
+ * Register your API routes here.
+ * All routes are automatically prefixed with the API prefix defined in config.
+ */
+
+// Example routes - feel free to modify or remove these
+$router->group(['prefix' => '/api'], function (Router $router) {
+
+    // Welcome endpoint
+    $router->get('/example', [ExampleController::class, 'index'])
+        ->name('example.index');
+
+    // Example resource routes
+    $router->get('/example/{id}', [ExampleController::class, 'show'])
+        ->where('id', '[0-9]+')
+        ->name('example.show');
+
+    $router->post('/example', [ExampleController::class, 'store'])
+        ->name('example.store');
+
+    // Your routes here
+    // $router->get('/users', [UserController::class, 'index']);
+    // $router->post('/users', [UserController::class, 'store']);
+    // $router->get('/users/{id}', [UserController::class, 'show']);
+    // $router->put('/users/{id}', [UserController::class, 'update']);
+    // $router->delete('/users/{id}', [UserController::class, 'destroy']);
+
+});

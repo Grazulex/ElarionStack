@@ -1,0 +1,77 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controllers;
+
+use Elarion\Http\Message\Response;
+use Psr\Http\Message\ServerRequestInterface;
+
+/**
+ * Example Controller
+ *
+ * This is a simple example controller to help you get started.
+ * Feel free to modify or delete this file.
+ */
+class ExampleController
+{
+    /**
+     * Display a simple welcome message
+     */
+    public function index(ServerRequestInterface $request): Response
+    {
+        return Response::json([
+            'message' => 'Welcome to ElarionStack!',
+            'version' => '1.0.0',
+            'framework' => 'ElarionStack',
+            'timestamp' => date('c'),
+            'endpoints' => [
+                'status' => '/api/example',
+                'docs' => '/api/documentation',
+            ],
+        ]);
+    }
+
+    /**
+     * Example endpoint with route parameter
+     */
+    public function show(int $id): Response
+    {
+        return Response::json([
+            'message' => 'Example resource retrieved',
+            'id' => $id,
+            'data' => [
+                'title' => "Example Item #{$id}",
+                'description' => 'This is an example item',
+                'created_at' => date('Y-m-d H:i:s'),
+            ],
+        ]);
+    }
+
+    /**
+     * Example endpoint with validation
+     */
+    public function store(ServerRequestInterface $request): Response
+    {
+        $data = $request->getParsedBody();
+
+        // Example validation (you can use Elarion\Validation\Validator)
+        if (empty($data['name'] ?? null)) {
+            return Response::json([
+                'error' => 'Validation failed',
+                'details' => [
+                    'name' => ['The name field is required.'],
+                ],
+            ], 422);
+        }
+
+        return Response::json([
+            'message' => 'Resource created successfully',
+            'data' => [
+                'id' => rand(1, 1000),
+                'name' => $data['name'],
+                'created_at' => date('Y-m-d H:i:s'),
+            ],
+        ], 201);
+    }
+}
